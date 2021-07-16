@@ -17,4 +17,3 @@ const getCity = async(city) => {
     const data = await response.json()
     return data[0]
 }
-
