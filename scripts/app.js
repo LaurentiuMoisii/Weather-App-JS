@@ -1,10 +1,13 @@
 const cityFrom = document.querySelector('form')
 const card = document.querySelector('.card')
 const details = document.querySelector('.details')
+const time = document.querySelector('img.time')
+const icon = document.querySelector('.icon img')
 
 const updateUi = (data) => {
-    const cityDetails = data.cityDetails
-    const weather = data.weather
+    // const cityDetails = data.cityDetails
+    // const weather = data.weather
+    const { cityDetails, weather} = data
     //update details template
 
     details.innerHTML = 
@@ -16,7 +19,17 @@ const updateUi = (data) => {
           <span>&deg;C</span>
         </div>
     `
+    let timeSrc = null;
+    if(weather.IsDayTime) {
+        timeSrc = 'img/day.svg'
+    } else {
+        timeSrc = 'img/night.svg'
+    }
+    
+    time.setAttribute('src', timeSrc)
+    console.log(timeSrc)
 }
+
 
 const updateCity = async(city) => {
     const cityDetails = await getCity(city)
