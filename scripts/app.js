@@ -4,6 +4,7 @@ const details = document.querySelector('.details')
 const time = document.querySelector('img.time')
 const icon = document.querySelector('.icon img')
 
+
 const updateUi = (data) => {
     // const cityDetails = data.cityDetails
     // const weather = data.weather
@@ -19,13 +20,13 @@ const updateUi = (data) => {
           <span>&deg;C</span>
         </div>
     `
-    let timeSrc = null;
-    if(weather.IsDayTime) {
-        timeSrc = 'img/day.svg'
-    } else {
-        timeSrc = 'img/night.svg'
+    if(card.classList.contains('d-none')) {
+        card.classList.remove('d-none')
     }
-    
+    const iconSrc = `img/icons/${weather.WeatherIcon}.svg`
+    icon.setAttribute('src', iconSrc)
+
+    let timeSrc = weather.IsDayTime ? 'img/day.svg' : 'img/night.svg'
     time.setAttribute('src', timeSrc)
     console.log(timeSrc)
 }
@@ -39,6 +40,8 @@ const updateCity = async(city) => {
 
 cityFrom.addEventListener('submit', (e) => {
     e.preventDefault()
+
+
     
     const city = cityFrom.city.value.trim()
     cityFrom.reset()
