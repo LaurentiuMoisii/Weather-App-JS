@@ -40,13 +40,12 @@ const updateCity = async(city) => {
 
 cityFrom.addEventListener('submit', (e) => {
     e.preventDefault()
-
-
-    
     const city = cityFrom.city.value.trim()
     cityFrom.reset()
 
     updateCity(city)
         .then(data => updateUi(data))
         .catch(err => console.log(err))
+    // set local storage
+    localStorage.setItem('city', city)
 })
