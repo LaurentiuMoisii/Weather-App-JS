@@ -5,14 +5,8 @@ const time = document.querySelector('img.time')
 const icon = document.querySelector('.icon img')
 const forecast = new Forecast()
 
-console.log(forecast)
-
-
 const updateUi = (data) => {
-    // const cityDetails = data.cityDetails
-    // const weather = data.weather
     const { cityDetails, weather} = data
-    //update details template
 
     details.innerHTML = 
     `
@@ -34,10 +28,6 @@ const updateUi = (data) => {
     console.log(timeSrc)
 }
 
-
-const updateCity = async(city) => {
-
-}
 
 cityFrom.addEventListener('submit', (e) => {
     e.preventDefault()
